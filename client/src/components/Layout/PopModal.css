@@ -1,0 +1,116 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(26, 26, 26, 0.5); /* Charcoal Black with opacity */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1050;
+}
+
+.modal-dialog {
+    background-color: #F3F6F9; /* Soft White */
+    color: #1A1A1A; /* Charcoal Black */
+    border-radius: 16px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(26, 26, 26, 0.1);
+    padding: 20px;
+    z-index: 1060;
+    transition: all 0.3s ease;
+}
+
+.modal-header {
+    background-color: #F3F6F9; /* Soft White */
+    color: #2B2B2B; /* Jet Black */
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.modal-title {
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+.btn-close {
+    background: none;
+    border: none;
+    color: #2B2B2B; /* Jet Black */
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.btn-close:hover {
+    color: #1A1A1A; /* Charcoal Black */
+}
+
+.modal-body {
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+    color: #1A1A1A; /* Charcoal Black */
+}
+
+.form-control {
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #C6D4E1; /* Cool Blue Gray */
+    margin-bottom: 15px;
+    width: 100%;
+    transition: border-color 0.3s ease;
+    background-color: #EAF0F7; /* Pale Blue */
+    color: #1A1A1A; /* Charcoal Black */
+}
+
+.form-control:focus {
+    border-color: #2B2B2B; /* Jet Black */
+    box-shadow: 0 0 5px rgba(43, 43, 43, 0.3);
+    outline: none;
+}
+
+.modal-footer {
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+.btn {
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.btn-secondary {
+    background-color: #F3F6F9; /* Soft White */
+    border-color: #2B2B2B; /* Jet Black */
+    color: #2B2B2B; /* Jet Black */
+}
+
+.btn-secondary:hover {
+    background-color: #2B2B2B; /* Jet Black */
+    color: white;
+    transform: scale(1.05);
+}
+
+.btn-primary {
+    background-color: #2B2B2B; /* Jet Black */
+    border-color: #2B2B2B;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #1A1A1A; /* Charcoal Black */
+    transform: scale(1.05);
+}
