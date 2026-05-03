@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import toast from "react-hot-toast";
 import TodoServices from "../../Services/TodoServices";
 
-const EditTodo = ({ task, setShowModal }) => {
+const EditTodo = ({ task, setShowModal, fetchTasks }) => {
   const [title, setTitle] = useState(task?.title || "");
   const [description, setDescription] = useState(task?.description || "");
   // Make sure to store boolean, not string
@@ -28,6 +28,7 @@ const EditTodo = ({ task, setShowModal }) => {
       await TodoServices.updateTodo(id, data);
       setShowModal(false);
       toast.success("Task Updated Successfully");
+      fetchTasks();
       setTitle("");
       setDescription("");
     } catch (error) {

@@ -44,5 +44,16 @@ const deleteTodo = (id) =>{
   });
 }
 
-const TodoServices = { createTodo, getAllTodo, updateTodo ,deleteTodo};
+const getSuggestion = async (title, description) => {
+  const response = await axios.post("http://localhost:8001/suggestion", {
+    title: title,
+    description: description
+  }, {
+    headers: {
+      "Content-Type": "application/json" 
+    }
+  });
+  return response.data;
+};
+const TodoServices = { createTodo, getAllTodo, updateTodo ,deleteTodo, getSuggestion};
 export default TodoServices;

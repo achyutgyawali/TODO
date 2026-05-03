@@ -9,6 +9,7 @@ const PopModal = ({
   setDescription,
   showModal,
   setShowModal,
+  fetchTasks,
 }) => {
   const handleClose = () => {
     setShowModal(false);
@@ -24,10 +25,10 @@ const PopModal = ({
         return toast("Please provide title and description");
       }
 
-      const todo = await TodoServices.createTodo(data);
+      await TodoServices.createTodo(data);
       setShowModal(false);
       toast.success("Task Created Successfully");
-      console.log(todo);
+      fetchTasks();
       setTitle("");
       setDescription("");
     } catch (error) {

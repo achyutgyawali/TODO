@@ -14,19 +14,23 @@ const Home = () => {
     setShowModal(true);
   };
 
-  useEffect(() => {
-    const userData = JSON.parse(localStorage.getItem("todoapp"));
-    const id = userData && userData.user.id;
-    const getUserTask = async () => {
-      try {
+  const getUserTask = async () => {
+    try {
+      const userData = JSON.parse(localStorage.getItem("todoapp"));
+      const id = userData && userData.user.id;
+      if (id) {
         const { data } = await TodoServices.getAllTodo(id);
         setAllTask(data?.todos);
-      } catch (error) {
-        console.log(error);
       }
-    };
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
     getUserTask();
   }, []);
+
   return (
     <>
       <Navbar />
@@ -37,7 +41,7 @@ const Home = () => {
             Add Task
           </button>
       </div>
-      {allTask && <Card allTask={allTask} />}
+      {allTask && <Card allTask={allTask} fetchTasks={getUserTask} />}
       <PopModal
         showModal={showModal}
         setShowModal={setShowModal}
@@ -45,6 +49,7 @@ const Home = () => {
         setTitle={setTitle}
         description={description}
         setDescription={setDescription}
+        fetchTasks={getUserTask}
       />
     </>
   );
